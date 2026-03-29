@@ -55,7 +55,7 @@ class TimeComplexityExamples
         {
             for (int j = 0; j < arr.Length; j++)
             {
-                Console.WiteLine($"Pair: ({arr[i]}, {arr[j]})");
+                Console.Witene($"Pair: ({arr[i]}, {arr[j]})");
             }
         }
     }
