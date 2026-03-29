@@ -4,7 +4,7 @@ class TimeComplexityExamples
 {
     static void Main()
     {
-        int[] numbers = { 1, 2, 3, 4, 5, 6 };
+        int[] numbers = { 1, 2, 3, 4, 5, 6......, 34 };
         
         Console.WriteLine("--- O(1) Example ---");
         PrintFirstElement(numbers);
