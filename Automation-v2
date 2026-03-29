@@ -1,0 +1,26 @@
+import requests
+
+ZAPIER_WEBHOOK = "https://hooks.zapier.com/hooks/catch/27009916/un9exeg/"
+
+def buggy_function():
+    numbers = [1, 2, 3]
+    print(numbers[5])
+    value = 10 / 0
+    return value
+
+def send_to_zapier(message):
+    try:
+        response = requests.post(ZAPIER_WEBHOOK, json={
+            "status": "error",
+            "message": message
+        })
+        print("Sent to Zapier:", response.status_code)
+    except Exception as e:
+        print("Failed to send webhook:", e)
+
+if __name__ == "__main__":
+    try:
+        buggy_function()
+    except Exception as e:
+        print("Error occurred:", str(e))
+        send_to_zapier(str(e))
