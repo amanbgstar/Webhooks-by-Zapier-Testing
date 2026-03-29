@@ -1,0 +1,39 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int numberToTest = 1221;
+        bool result = IsPalindrome(numberToTest);
+        
+        Console.WriteLine($"Is {numberToTest} a palindrome? {result}");
+    }
+
+    /// <summary>
+    /// Checks if a given integer is a palindrome using a mathematical approach.
+    /// </summary>
+    public static bool IsPalindrome(int x)
+    {
+        // Guard Clauses: Handle known non-palindromes immediately
+        // 1. Negative numbers are not palindromes (e.g., -121 reversed is 121-)
+        // 2. Numbers ending in 0 cannot be palindromes (unless the number is exactly 0)
+        if (x < 0 || (x % 10 == 0 && x != 0))
+        {
+            return false;
+        }
+
+        int reversedHalf = 0;
+
+        // Reverse only the second half of the number
+        while (x > reversedHalf)
+        {
+            reversedHalf = (reversedHalf * 10) + (x % 10);
+            x /= 10;
+        }
+
+        // For even-length numbers, x will equal reversedHalf.
+        // For odd-length numbers, we can ignore the middle digit by dividing reversedHalf by 10.
+        return x == reversedHalf || x == reversedHalf / 10;
+    }
+}
