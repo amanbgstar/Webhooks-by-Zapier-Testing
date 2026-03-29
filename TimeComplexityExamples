@@ -1,0 +1,62 @@
+using System;
+
+class TimeComplexityExamples
+{
+    static void Main()
+    {
+        int[] numbers = { 1, 2, 3, 4, 5 };
+        
+        Console.WriteLine("--- O(1) Example ---");
+        PrintFirstElement(numbers);
+
+        Console.WriteLine("\n--- O(n) Example ---");
+        PrintAllElements(numbers);
+
+        Console.WriteLine("\n--- O(n^2) Example ---");
+        PrintAllPairs(numbers);
+    }
+
+    /// <summary>
+    /// O(1) - Constant Time
+    /// </summary>
+    static void PrintFirstElement(int[] arr)
+    {
+        // No matter how large the array is, it takes the exact same amount 
+        // of time to jump directly to the first index.
+        if (arr.Length > 0)
+        {
+            Console.WriteLine($"First element: {arr[0]}");
+        }
+    }
+
+    /// <summary>
+    /// O(n) - Linear Time
+    /// </summary>
+    static void PrintAllElements(int[] arr)
+    {
+        // If the array has 5 items, this loop runs 5 times. 
+        // If it has 1,000,000 items, it runs 1,000,000 times. 
+        // The time it takes scales proportionally with the input size.
+        foreach (int num in arr)
+        {
+            Console.WriteLine($"Processing: {num}");
+        }
+    }
+
+    /// <summary>
+    /// O(n^2) - Quadratic Time
+    /// </summary>
+    static void PrintAllPairs(int[] arr)
+    {
+        // For every item in the array, we loop through the entire array AGAIN.
+        // If the array has 5 items, it runs 5 * 5 = 25 times.
+        // If the array has 1,000 items, it runs 1,000,000 times.
+        for (int i = 0; i < arr.Length; i++)
+        {
+            for (int j = 0; j < arr.Length; j++)
+            {
+                Console.WriteLine($"Pair: ({arr[i]}, {arr[j]})");
+            }
+        }
+    }
+}
